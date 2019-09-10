@@ -6,7 +6,10 @@ It is the official code repository for our paper.
 
 **Authors:** Dario Pasquini, Ankit Gangwal, Giuseppe Ateniese, Massimo Bernaschi, and Mauro Conti.
 
-![rockyou](./rockyou.png)
+<p align="center">
+	<img src ="./rockyou.png" />
+</p>
+
 
 ## Content:
 
