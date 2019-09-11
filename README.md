@@ -18,6 +18,14 @@ It is the official code repository for our paper.
 Directory *DATA/TFHUB_models* contains pretrained GAN generator models in [tensorflow hub](https://www.tensorflow.org/hub) format. You can play with them using the python notebook *sampleFromPassGAN.ipynb*.
 
 ### Scripts:
+**Dependencies:**
+
+- tensorflow (only 1.14.0 tested)
+- tensorflow_hub
+- numpy
+- tqdm
+- [gin](https://github.com/google/gin-config) #pip install gin-config
+
 #### Generate passwords with the generator
 
 Use the python script *generatePasswords.py* to generate password.
@@ -34,16 +42,24 @@ An example:
 
 > python3 generatePasswords.py 10000 4096 ./OUTPUT/out.txt
 
-Dependencies:
 
-* tensorflow (only 1.14.0 tested)
-* tensorflow_hub
-* numpy
-* tqdm
 
 #### Dynamic Password Guessing (DPG)
 
-uploading soon ....
+The script: *dynamicPG.py* is a proof-of-concept implementation of Dynamic Password Guessing. The script takes as input the set of attacked passwords (plaintext) and perform DPG on it. The generated passwords are then printed on a chosen output file
+
+> USAGE: python3 dynamicPG.py CONF TEST-SET #GUESSES OUTPUTFILE
+
+here:
+
+- **CONF =** gin configuration file. An example of this can be found in *'./DATA/CONFINGS/DPG_default.gin'*. Here, you can choose the value for $\sigma$ and $\alpha$.
+- **TEST-SET =** Path of the textual file containing the attacked passwords (plaintext). The file must contain a password per row.
+- **GUESSES =** Number of passwords to produce.
+- **OUTPUTFILE =** Path of the file where to write the generated passwords
+
+An example:
+
+> python3 dynamicPG.py DATA/CONFINGS/DPG_default.gin ~/hotmail.txt 10000000 output.txt 
 
 #### Substring Password Guessing (SPG)
 

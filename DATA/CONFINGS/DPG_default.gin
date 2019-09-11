@@ -1,0 +1,8 @@
+setup.G_TFHUB = './DATA/TFHUB_models/BNK_RESNET_PassGAN_2'
+setup.CHAR_MAP = './DATA/MISC/char_map.pickle'
+setup.LATENT_SIZE = 64
+setup.STDDV = 0.35
+setup.HOT_START = 0.01
+setup.BATCHSIZE = 4096
+setup.ENCODING = 'iso-8859-1'
+setup.MAX_LEN = 10
