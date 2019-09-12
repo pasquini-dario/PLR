@@ -15,7 +15,14 @@ It is the official code repository for our paper.
 
 ### Pre-trained GAN generator
 
+Our basic GAN generator is an improved version of the one proposed in [PassGAN](https://arxiv.org/abs/1709.00440).  A comparison on the RockYou [test-set](https://arxiv.org/abs/1709.00440) follows:
+<p align="center">
+	<img width="300" height="250" src ="./oursVSpassgan.png" />
+</p>
+
 Directory *DATA/TFHUB_models* contains pretrained GAN generator models in [tensorflow hub](https://www.tensorflow.org/hub) format. You can play with them using the python notebook *sampleFromPassGAN.ipynb*.
+
+The code for the training of the generator and the encoder will be uploaded soon.
 
 ### Scripts:
 **Dependencies:**
