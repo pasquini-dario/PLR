@@ -1,4 +1,4 @@
-setup.G_TFHUB = './DATA/TFHUB_models/BNK_RESNET_PassGAN_2'
+setup.G_TFHUB = './DATA/TFHUB_models/BNK_RESNET_PassGAN_1'
 setup.CHAR_MAP = './DATA/MISC/char_map.pickle'
 setup.LATENT_SIZE = 64
 setup.STDDV = 0.35

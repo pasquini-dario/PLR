@@ -13,7 +13,7 @@ from tqdm import trange
 
 LATENT_SIZE = 64
 MHUB_SIGNATURE = 'latent_to_data'
-MODEL_PATH = './DATA/TFHUB_models/BNK_RESNET_PassGAN_2/'
+MODEL_PATH = './DATA/TFHUB_models/BNK_RESNET_PassGAN_1/'
 CHARMAP_PATH = './DATA/MISC/char_map.pickle'
 ENCODING = 'UTF-8'
 
