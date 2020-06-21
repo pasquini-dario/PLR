@@ -32,6 +32,9 @@ The code for the training of the generator and the encoder will be uploaded soon
 - numpy
 - tqdm
 - [gin](https://github.com/google/gin-config) #pip install gin-config
+- numpy_ringbuffer #numpy_ringbuffer
+- [peloton_bloomfilters](https://github.com/pelotoncycle/peloton_bloomfilters) (in our repo, a modified version of the code)
+  - *peloton_bloomfilters; pip install .* 
 
 #### Generate passwords with the generator
 
@@ -53,7 +56,7 @@ An example:
 
 #### Dynamic Password Guessing (DPG)
 
-The script: *dynamicPG.py* is a proof-of-concept implementation of Dynamic Password Guessing. The script takes as input the set of attacked passwords (plaintext) and perform DPG on it. The generated passwords are then printed on a chosen output file.
+The script: *dynamicPG.py* is a proof-of-concept implementation of Dynamic Password Guessing. The script takes as input the set of attacked passwords (plaintext) and perform DPG on it. The generated passwords are then printed on a chosen output file. 
 
 > USAGE: python3 dynamicPG.py CONF TEST-SET #GUESSES OUTPUTFILE
 

@@ -1,8 +1,14 @@
 setup.G_TFHUB = './DATA/TFHUB_models/BNK_RESNET_PassGAN_1'
 setup.CHAR_MAP = './DATA/MISC/char_map.pickle'
 setup.LATENT_SIZE = 64
+setup.STDDV_P = 1.
 setup.STDDV = 0.35
-setup.HOT_START = 0.01
+# choose HOT_START based on the number of guesses to perform
+setup.HOT_START = 0.10
 setup.BATCHSIZE = 4096
 setup.ENCODING = 'iso-8859-1'
 setup.MAX_LEN = 10
+
+setup.accuracy_bloomf = 0.01
+
+setup.STATIC = False
