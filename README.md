@@ -32,7 +32,7 @@ The code for the training of the generator and the encoder will be uploaded soon
 - numpy
 - tqdm
 - [gin](https://github.com/google/gin-config) #pip install gin-config
-- numpy_ringbuffer #numpy_ringbuffer
+- numpy_ringbuffer # pip install numpy_ringbuffer
 - [peloton_bloomfilters](https://github.com/pelotoncycle/peloton_bloomfilters) (in our repo, a modified version of the code)
   - *peloton_bloomfilters; pip install .* 
 
