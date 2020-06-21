@@ -20,14 +20,14 @@ Our basic GAN generator is an improved version of the one proposed in [PassGAN](
 	<img width="300" height="250" src ="./oursVSpassgan.png" />
 </p>
 
-Directory *DATA/TFHUB_models* contains pretrained GAN generator models in [tensorflow hub](https://www.tensorflow.org/hub) format. You can play with them using the python notebook *sampleFromPassGAN.ipynb*.
+Directory *DATA/TFHUB_models* contains pretrained GAN generators and autoencoders in [tensorflow hub](https://www.tensorflow.org/hub) format. You can play with them using the python notebook *sampleFromPassGAN.ipynb* and *CPG_poc.ipynb* respectively.
 
 The code for the training of the generator and the encoder will be uploaded soon.
 
 ### Scripts:
 **Dependencies:**
 
-- tensorflow (only 1.14.0 tested)
+- **tensorflow1** (only 1.14.0 tested)
 - tensorflow_hub
 - numpy
 - tqdm
@@ -35,7 +35,7 @@ The code for the training of the generator and the encoder will be uploaded soon
 
 #### Generate passwords with the generator
 
-Use the python script *generatePasswords.py* to generate password.
+Use the python script *generatePasswords.py* to **unconditionally** generate password.
 
 > USAGE: python3 generatePasswords.py NBATCH BATCHSIZE OUTPUTFILE
 
@@ -53,7 +53,7 @@ An example:
 
 #### Dynamic Password Guessing (DPG)
 
-The script: *dynamicPG.py* is a proof-of-concept implementation of Dynamic Password Guessing. The script takes as input the set of attacked passwords (plaintext) and perform DPG on it. The generated passwords are then printed on a chosen output file
+The script: *dynamicPG.py* is a proof-of-concept implementation of Dynamic Password Guessing. The script takes as input the set of attacked passwords (plaintext) and perform DPG on it. The generated passwords are then printed on a chosen output file.
 
 > USAGE: python3 dynamicPG.py CONF TEST-SET #GUESSES OUTPUTFILE
 
@@ -66,9 +66,13 @@ here:
 
 An example:
 
-> python3 dynamicPG.py DATA/CONFINGS/DPG_default.gin ~/hotmail.txt 10000000 output.txt 
+> python3 dynamicPG.py DATA/CONFINGS/DPG_default.gin ~/zomato.txt 10000000 output.txt 
 
-#### Substring Password Guessing (SPG)
+DPG works particularly at attacking large sets of passwords.
 
-uploading soon ....
+#### Conditional Password Guessing (CPG)
+
+You can play with CPG using *CPG_poc.ipynb*.
+
+
 

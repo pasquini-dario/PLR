@@ -30,14 +30,14 @@ def setupG4DPG(module_path, batch_size, latent_size, signature='latent_to_data')
     z = tf.placeholder(shape=(batch_size, latent_size), dtype=tf.float32)
     x = G(z, signature=signature)
     return z, x
-    
+
 
 if __name__ == '__main__':
-    
+
     try:
         gin_conf = sys.argv[1]
         test_path = sys.argv[2]
-        n = int(sys.argv[3])   
+        n = int(sys.argv[3])
         output_path = sys.argv[4]
     except:
         print("USAGE: CONF TEST-SET #GUESSES OUTPUTFILE")
@@ -57,11 +57,11 @@ if __name__ == '__main__':
     ENCODING = conf['ENCODING']
     MAX_LEN = conf['MAX_LEN']
     # END SETUP
-    
+
     print("READING TEST ...")
     tc = util.readP(test_path, encoding=ENCODING, n=MAX_LEN)
     tcn = len(tc)
-    
+
     hot_start = int( tcn * hot_start )
     print('HOT_START->', hot_start, '/',  tcn)
 
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     sess = tf.Session()
     sess.run(tf.global_variables_initializer())
     sess.run(tf.tables_initializer())
-    
+
     print("PASSWORDS GENERATION ...")
     i = 0
     UN = set()
@@ -80,14 +80,14 @@ if __name__ == '__main__':
     FLAG = False
     DYNAMIC_ = False
     EXIT = False
-    
+
     fout = open(output_path, 'w', encoding=ENCODING)
-    
+
     pbar = tqdm(total=n)
     while not EXIT:
 
         zbatch, batch = generate(Z, X, batch_size, latent_size, zma, DYNAMIC_, stddv)
-        
+
         batch = util.clean(batch)
 
         for z, p in zip(zbatch, batch):
@@ -107,14 +107,14 @@ if __name__ == '__main__':
                 if len(zma) > hot_start and not DYNAMIC_:
                     print("DYNAMIC starts now ....")
                     DYNAMIC_ = True
-                    
+
             if i >= n:
                 EXIT = True
                 break
-    
+
     score = tcmn / tcn
     print("GUESSED PASSWORDS: %f" % score)
-        
+
     pbar.close()
     fout.close()
     sess.close()
