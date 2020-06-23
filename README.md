@@ -32,7 +32,7 @@ The code for the training of the generator and the encoder will be uploaded soon
 - numpy
 - tqdm
 - [gin](https://github.com/google/gin-config) #pip install gin-config
-- numpy_ringbuffer #numpy_ringbuffer
+- numpy_ringbuffer # pip install numpy_ringbuffer
 - [peloton_bloomfilters](https://github.com/pelotoncycle/peloton_bloomfilters) from [Peloton](https://github.com/pelotoncycle) (in our repo, a modified version of the code aimed for py3)
   - *peloton_bloomfilters; pip install .* 
 
@@ -76,6 +76,5 @@ As reported in our paper, DPG is aimed to be applied on password leaks the follo
 #### Conditional Password Guessing (CPG)
 
 You can play with CPG using *CPG_poc.ipynb*.
-
 
 
