@@ -33,7 +33,7 @@ The code for the training of the generator and the encoder will be uploaded soon
 - tqdm
 - [gin](https://github.com/google/gin-config) #pip install gin-config
 - numpy_ringbuffer #numpy_ringbuffer
-- [peloton_bloomfilters](https://github.com/pelotoncycle/peloton_bloomfilters) (in our repo, a modified version of the code)
+- [peloton_bloomfilters](https://github.com/pelotoncycle/peloton_bloomfilters) from [Peloton](https://github.com/pelotoncycle) (in our repo, a modified version of the code aimed for py3)
   - *peloton_bloomfilters; pip install .* 
 
 #### Generate passwords with the generator
