@@ -1,0 +1,18 @@
+setup.arch_id = 1
+
+setup.dataset_path = "..." #Put the path for the dataset here! Use make_dataset.py to create the file.
+setup.z_size = 128
+setup.z_prior = 1.0
+setup.x_size = 10
+setup.learning_rate = 1e-4
+setup.beta1 = .5
+setup.beta2 = .9
+setup.D_iters = 10
+setup.batch_size = 64
+setup.epochs = 4000000 # number of iterations
+
+setup.evaluation_fq = 19500
+setup.generator_samples = 1e8
+setup.evaluation_batch_size = 2048
+
+setup.gamma = 0.05
