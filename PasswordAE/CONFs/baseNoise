@@ -1,0 +1,14 @@
+setup.epochs = 20
+
+setup.reg_type = 1
+setup.max_len = 18
+
+setup.beta = 1.
+
+setup.batch_size = 256
+setup.SAVE_CHECKPOINT_STEP = 50000
+setup.THROTTLE_SECS = 2000
+setup.BUFFER_SIZE = 1000
+setup.SAVE_SUMMARY_STEPS = 5000
+setup.learning_rate = 0.0001
+

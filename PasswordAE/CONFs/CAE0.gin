@@ -1,0 +1,11 @@
+include 'CONFs/baseNoise'
+
+setup.home = "PUT DATASET HERE!!!!!!"
+setup.max_len = 16
+
+setup.loss_id = 0
+setup.arch_id = 4
+setup.latent_size = 128
+setup.alpha = 9.0
+
+setup.epochs = 10
