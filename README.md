@@ -7,9 +7,11 @@ It is the official code repository for our paper.
 **Authors:** [Dario Pasquini](https://www.researchgate.net/profile/Dario_Pasquini), [Ankit Gangwal](https://www.math.unipd.it/~gangwal/), [Giuseppe Ateniese](https://scholar.google.com/citations?hl=en&user=EyZJ08MAAAAJ), [Massimo Bernaschi](http://www.iac.rm.cnr.it/~massimo/Massimo_Bernaschi_home_page/Welcome.html), and [Mauro Conti](https://www.math.unipd.it/~conti/).
 
 <p align="center">
-	<img src ="./rockyou.png" />
+	<img width="40%" height="40%" src ="./rockyou.png" />
 </p>
 
+### Related Guessing Attacks
+* [Adaptive, Dynamic Mangling rules: **ADaMs** attack](https://github.com/TheAdamProject/adams)
 
 ## Content:
 
