@@ -71,7 +71,7 @@ An example:
 
 > python3 dynamicPG.py DATA/CONFINGS/DPG_default.gin ~/zomato.txt 10000000 output.txt 
 
-As reported in our paper, DPG is aimed to be applied on password leaks the follow distributions different from the one of the used training-set (our *a priori* knowledge). Additionally, it works particularly well when the attacked leak has large cardinality.
+As reported in our paper, DPG is aimed to be applied on password leaks the follow distributions different from the one of the used training-set (our *a priori* knowledge). **Additionally, it works particularly well when the attacked leak has large cardinality.**
 
 #### Conditional Password Guessing (CPG)
 
