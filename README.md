@@ -103,9 +103,9 @@ To train the generator, you need to create a training set first. You can do that
 
    [Here an example file](http://downloads.skullsecurity.org/passwords/rockyou-withcount.txt.bz2)
 
-2. The maximum length of the passwords to include in the training set (e.g., 10 or 16).
+2. The second parameter is the maximum length of the passwords to include in the training set (e.g., 10 or 16).
 
-   2. Where to save the output file e.g, */home/user/dataset.pickle*
+3. The third parameter is where to save the output file e.g, */home/user/dataset.pickle*
 
 ### Create a configuration file and train the model
 
