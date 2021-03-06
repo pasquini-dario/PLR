@@ -85,11 +85,9 @@ You can play with CPG using *CPG_poc.ipynb*.
 
 The code needed to train a GAN generator is located inside the directory *PasswordGAN*.
 
-To train the generator, you need to create a training set first. You can do that by using the script *make_dataset.py*. Instructions:
+To train the generator, you need to create a training set first. You can do that by using the script *make_dataset.py*. *make_dataset.py* takes three arguments as input:
 
-*make_dataset.py* takes three arguments as input:
-
-1. The first is the path to an txt file that contains the passwords you want to use to train the model. ⚠️ Every line of the file must be in the format: "[PASSWORD FREQUENCY] [PASSWORD]". For instance:
+1. The path to an txt file that contains the passwords you want to use to train the model. ⚠️ Every line of the file must be in the format: "[PASSWORD FREQUENCY] [PASSWORD]". For instance:
 
    ````
      49952 iloveyou
@@ -101,28 +99,57 @@ To train the generator, you need to create a training set first. You can do that
      ...........
    ````
 
-   [Here an example file](http://downloads.skullsecurity.org/passwords/rockyou-withcount.txt.bz2)
+   [Here an example file.](http://downloads.skullsecurity.org/passwords/rockyou-withcount.txt.bz2)
 
-2. The second parameter is the maximum length of the passwords to include in the training set (e.g., 10 or 16).
+2. The maximum length of the passwords to include in the training set (e.g., 10 or 16).
 
-3. The third parameter is where to save the output file e.g, */home/user/dataset.pickle*
+3. Where to save the output file in pickle format e.g, */home/user/dataset.pickle*.
 
 ### Create a configuration file and train the model
 
-Once created the dataset, you have to edit the config file in *PasswordGAN/CONF/arch1.gin*. In particular, you have to set the variables *setup.dataset_path* with the path to the dataset e.g., *setup.dataset_path = "/home/user/dataset.pickle"*.
+Once created the dataset, you have to edit the config file in *PasswordGAN/CONF/arch1.gin*. In particular, you have to set the variable *setup.dataset_path* with the path to the dataset e.g.:
 
-Then, you can train the model by using the script *train.py* in PasswordGAN. The script takes as input the path to the config file e.g.,:
+```
+setup.dataset_path = "/home/user/dataset.pickle"
+```
+
+Then, you can train the model by using the script *train.py*. The script takes as input the path to the config file e.g.,:
 
  ```
 python train.py CONF/arch1.gin
  ```
 
-The script saves logs (tensorboard) and checkpoints inside the folder "./PasswordGAN/HOME/CHECKPOINTS/".
-
-
+The script saves tensorboard logs  and checkpoints inside the folder "./PasswordGAN/HOME/CHECKPOINTS/". 
 
 ## Autoencoder-based models
 
-...
+The code needed to train a GAN generator is located inside the directory *PasswordAE*. As for the GAN model, a training set must be created. You can do that by using the script *parseDataSetWithCount.py*. This takes 6 input parameters: 
+
+1. A txt containing the passwords. This must have the same format "[PASSWORD FREQUENCY] [PASSWORD]" used for the GAN model.
+2. The maximum length of the passwords to include in the training set (e.g., 10 or 16).
+3. The minimum length of the passwords to include in the training set (e.g., 3).
+4. The allowed charset e.g., *ascii* or *utf-8*.
+5. The output directory.
+6. The size of the validation-set in [0,1] e.g., *0.2* (20% is used a validation-set).
+
+A complete example:
+
+```
+python parseDataSetWithCount.py ~/phpbb-withcount.txt 16 2 ascii HOME/DATASET/. 0.2
+```
+
+### Create a configuration file and train the model
+
+Once created the dataset file, you have to set *setup.hom*e inside the config file *PasswordAE/CONF/CAE0.gin* with the path to the dataset e.g., *setup.home = "HOME/DATASET/"*
+
+Then, you can train the model: 
+
+```
+python train.py CONFs/CAE0.gin
+```
+
+As for the GAN, it should save checkpoints and tfhub models inside *PasswordAE/HOME/MODELS/*.
+
+Finally, you should be able to load the model with CPG_poc.ipynb and check if it works.
 
 
