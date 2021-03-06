@@ -152,4 +152,20 @@ As for the GAN, it should save checkpoints and tfhub models inside *PasswordAE/H
 
 Finally, you should be able to load the model with CPG_poc.ipynb and check if it works.
 
-
+# How to cite our paper:
+```
+@INPROCEEDINGS {improvingpgvrl,
+	author = {D. Pasquini and A. Gangwal and G. Ateniese and M. Bernaschi and M. Conti},
+	booktitle = {2021 2021 IEEE Symposium on Security and Privacy (SP)},
+	title = {Improving Password Guessing via Representation Learning},
+	year = {2021},
+	issn = {2375-1207},
+	pages = {265-282},
+	keywords = {password-security;deep-learning},
+	doi = {10.1109/SP40001.2021.00016},
+	url = {https://doi.ieeecomputersociety.org/10.1109/SP40001.2021.00016},
+	publisher = {IEEE Computer Society},
+	address = {Los Alamitos, CA, USA},
+	month = {may}
+}
+```
