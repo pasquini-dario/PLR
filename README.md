@@ -54,8 +54,6 @@ An example:
 
 > python3 generatePasswords.py 10000 4096 ./OUTPUT/out.txt
 
-
-
 #### Dynamic Password Guessing (DPG)
 
 The script: *dynamicPG.py* is a proof-of-concept implementation of Dynamic Password Guessing. The script takes as input the set of attacked passwords (plaintext) and perform DPG on it. The generated passwords are then printed on a chosen output file. 
@@ -78,5 +76,53 @@ As reported in our paper, DPG is aimed to be applied on password leaks the follo
 #### Conditional Password Guessing (CPG)
 
 You can play with CPG using *CPG_poc.ipynb*.
+
+# Training your own model
+
+## GAN models
+
+### Create a dataset
+
+The code needed to train a GAN generator is located inside the directory *PasswordGAN*.
+
+To train the generator, you need to create a training set first. You can do that by using the script *make_dataset.py*. Instructions:
+
+*make_dataset.py* takes three arguments as input:
+
+1. The first is the path to an txt file that contains the passwords you want to use to train the model. ⚠️ Every line of the file must be in the format: "[PASSWORD FREQUENCY] [PASSWORD]". For instance:
+
+   ````
+     49952 iloveyou
+     33291 princess
+     21725 1234567
+     20901 rockyou
+     20553 12345678
+     16648 abc123
+     ...........
+   ````
+
+   [Here an example file](http://downloads.skullsecurity.org/passwords/rockyou-withcount.txt.bz2)
+
+2. The maximum length of the passwords to include in the training set (e.g., 10 or 16).
+
+   2. Where to save the output file e.g, */home/user/dataset.pickle*
+
+### Create a configuration file and train the model
+
+Once created the dataset, you have to edit the config file in *PasswordGAN/CONF/arch1.gin*. In particular, you have to set the variables *setup.dataset_path* with the path to the dataset e.g., *setup.dataset_path = "/home/user/dataset.pickle"*.
+
+Then, you can train the model by using the script *train.py* in PasswordGAN. The script takes as input the path to the config file e.g.,:
+
+ ```
+python train.py CONF/arch1.gin
+ ```
+
+The script saves logs (tensorboard) and checkpoints inside the folder "./PasswordGAN/HOME/CHECKPOINTS/".
+
+
+
+## Autoencoder-based models
+
+...
 
 
