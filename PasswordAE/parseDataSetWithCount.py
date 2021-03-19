@@ -7,6 +7,10 @@ import random
 import os
 import h5py
 
+def printP(path, X, encoding='iso-8859-1'):
+    with open(path, 'w', encoding=encoding) as f:
+        for x in X:
+            print(x, file=f)
 
 def readPC_skip_encoding(path, encoding='utf-8', MIN_LEN=0, MAX_LEN=100):
     with open(path, encoding=encoding, errors='ignore') as f:
@@ -50,7 +54,7 @@ if __name__ == '__main__':
     X, F = readPC_skip_encoding(Xpath, encoding=ENCODING, MAX_LEN=MAX_LEN, MIN_LEN=MIN_LEN)
     rank = rankp(F)
     TEST_OUT = os.path.join(HOME, 'X.txt')
-    hashPyCat.printP(TEST_OUT, X)
+    printP(TEST_OUT, X)
     #####################################
     
     print("NUMBER OF UNIQUE PASSWORDS ", len(X))
