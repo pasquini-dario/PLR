@@ -8,6 +8,22 @@ import random
 import os
 import h5py
 
+
+def readPC_skip_encoding(path, encoding='utf-8', MIN_LEN=0, MAX_LEN=100):
+    with open(path, encoding=encoding, errors='ignore') as f:
+        raw = [x.lstrip()[:-1].split(' ') for x in f]
+        raw = [[int(x[0]), ' '.join(x[1:])] for x in raw ]
+        raw = [x for x in raw if x[1] and len(x[1]) <= MAX_LEN and len(x[1]) >= MIN_LEN]
+        F = np.array( [x[0] for x in raw] )
+        X = [x[1] for x in raw]
+
+    return X, F
+
+def rankp(f):
+    f_ = {x:i for i, x in enumerate(sorted( set(f), reverse=True))}
+    rank = [f_[x] for x in f]
+    return rank
+
 def string2index(s, MAX_LEN, char_map):
     idx = np.zeros(MAX_LEN, np.uint8)
     for i, c in enumerate(s):
@@ -32,8 +48,8 @@ if __name__ == '__main__':
         
         
     # READ FROM WITH-COUNT FILE AND WRITE TXT ON FILE
-    X, F = hashPyCat.readPC_skip_encoding(Xpath, encoding=ENCODING, MAX_LEN=MAX_LEN, MIN_LEN=MIN_LEN)
-    rank = hashPyCat.rank(F)
+    X, F = readPC_skip_encoding(Xpath, encoding=ENCODING, MAX_LEN=MAX_LEN, MIN_LEN=MIN_LEN)
+    rank = rankp(F)
     TEST_OUT = os.path.join(HOME, 'X.txt')
     hashPyCat.printP(TEST_OUT, X)
     #####################################
